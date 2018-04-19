@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\Campo.cs" />
     <Compile Include="Enums\TypeFormat.cs" />
     <Compile Include="Log\AdapterSerilog.cs" />
     <Compile Include="Log\ILogger.cs" />

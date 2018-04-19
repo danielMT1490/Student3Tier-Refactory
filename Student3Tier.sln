@@ -23,6 +23,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Student.DataAcess.SQL", "St
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Student.DataAccess.DaoTests", "Student.DataAccess.DaoTests\Student.DataAccess.DaoTests.csproj", "{C41AA919-B2BB-4DC3-8F40-DC6FF1713AD3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Student.Business.LogicTests", "Student.Business.LogicTests\Student.Business.LogicTests.csproj", "{DE9D8CDB-1441-40C2-8032-7F9D8691421A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{C41AA919-B2BB-4DC3-8F40-DC6FF1713AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C41AA919-B2BB-4DC3-8F40-DC6FF1713AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C41AA919-B2BB-4DC3-8F40-DC6FF1713AD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE9D8CDB-1441-40C2-8032-7F9D8691421A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE9D8CDB-1441-40C2-8032-7F9D8691421A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE9D8CDB-1441-40C2-8032-7F9D8691421A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE9D8CDB-1441-40C2-8032-7F9D8691421A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +72,7 @@ Global
 		{636E7130-53ED-4D8B-A961-086DEDE5FC9B} = {31948485-E812-42E8-A1FD-9A32633D848A}
 		{D7EAC898-B1C4-458A-9820-53F7C7C533F6} = {20663695-033F-4882-90CC-166CFF993F63}
 		{C41AA919-B2BB-4DC3-8F40-DC6FF1713AD3} = {20663695-033F-4882-90CC-166CFF993F63}
+		{DE9D8CDB-1441-40C2-8032-7F9D8691421A} = {31948485-E812-42E8-A1FD-9A32633D848A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E7CE9762-E2DC-4C12-BFDC-9B2246930E4D}

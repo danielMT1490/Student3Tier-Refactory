@@ -15,7 +15,10 @@ namespace Student.DataAccess.Dao.Factory
     public class FactoryDao<T> : IFactory<T> where T : IVuelingObject 
     {
         private readonly TypeFormat typeFormat;
-        public FactoryDao(TypeFormat type) => typeFormat = type;
+        public FactoryDao(TypeFormat type)
+        {
+            typeFormat = type;
+        }
 
         public IDao<T> FactoryFormat()
         {
