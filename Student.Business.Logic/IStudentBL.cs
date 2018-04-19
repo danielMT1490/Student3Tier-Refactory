@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Student.Business.Logic
 {
-    public class Class1
+    public interface IStudentBL
     {
     }
 }
