@@ -17,7 +17,7 @@ namespace Student.Business.Logic
 {
     public class StudentBL : IStudentBL
     {
-        public static readonly ILogger Log = UtilsConfiguration.InstanceLog(System.Reflection.MethodBase.GetCurrentMethod().GetType());
+        public static readonly ILogger Log = new AdapterLog4Net(System.Reflection.MethodBase.GetCurrentMethod().GetType());
         private readonly FactoryDao<Alumno> FactoryDao;
 
         public StudentBL()

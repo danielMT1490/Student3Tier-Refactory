@@ -11,25 +11,10 @@ namespace Student.Common.Logic.UtilsConfig
 {
     public static class UtilsConfiguration
     {
-        public static readonly ILogger Log = UtilsConfiguration.InstanceLog(System.Reflection.MethodBase.GetCurrentMethod().GetType());
-        public static ILogger InstanceLog(Type TypeDeclaring)
+        public static readonly ILogger Log;
+        static UtilsConfiguration()
         {
-            Log.Debug("");
-            try
-            {
-                var key = ConfigurationManager.AppSettings["LogType"];
-
-                object[] Params = { TypeDeclaring };
-                Type t = Assembly.GetExecutingAssembly().GetType(key);
-
-                return (ILogger)Activator.CreateInstance(t, Params);
-            }
-            catch (Exception ex )
-            {
-                Log.Error(ex );
-                throw;
-            }
-            
+           Log  = new AdapterLog4Net(System.Reflection.MethodBase.GetCurrentMethod().GetType());
         }
 
         public static void ChangeLogConfig(string classLog)
@@ -85,7 +70,8 @@ namespace Student.Common.Logic.UtilsConfig
         {
             try
             {
-                return ConfigurationManager.AppSettings["Format"];
+                var format= ConfigurationManager.AppSettings["Format"];
+                return format;
             }
             catch (Exception ex)
             {
@@ -109,6 +95,24 @@ namespace Student.Common.Logic.UtilsConfig
                 throw;
             }
 
+        }
+
+        public static string Desencriptacion()
+        {
+            try
+            {
+                Log.Debug("");
+                var valueAppConfig = ConfigurationManager.AppSettings["Database"];
+                var encriptconnection = Environment.GetEnvironmentVariable(valueAppConfig, EnvironmentVariableTarget.User);
+                byte[] desencriptar = Convert.FromBase64String(encriptconnection);
+                return Encoding.Unicode.GetString(desencriptar);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                throw;
+            }
+          
         }
 
     }

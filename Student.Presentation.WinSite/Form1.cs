@@ -1,4 +1,7 @@
 ﻿using Student.Common.Logic.Log;
+using Student.Common.Logic.Models;
+using Student.Common.Logic.UtilsConfig;
+using Student.DataAccess.Dao.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,13 +16,13 @@ namespace Student.Presentation.WinSite
 {
     public partial class Form1 : Form
     {
-        private readonly ILogger Log = new AdapterLog4Net(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        public static readonly ILogger Log = new AdapterLog4Net(System.Reflection.MethodBase.GetCurrentMethod().GetType());
         public Form1()
         {
             try
             {
-                int x = 3;
-               var result= x / 0;
+              
+                StudentSql<Alumno> stu = new StudentSql<Alumno>();
             }
             catch (Exception ex )
             {

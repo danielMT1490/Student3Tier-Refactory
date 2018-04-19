@@ -1,4 +1,5 @@
 ﻿using Student.Common.Logic.Enums;
+using Student.Common.Logic.Log;
 using Student.Common.Logic.Models;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace Student.Business.Logic
 {
     public class Filtro
     {
+         public static readonly ILogger Log = new AdapterLog4Net(System.Reflection.MethodBase.GetCurrentMethod().GetType());
         public List<Alumno> Students { get; set; }
 
         public Filtro(List<Alumno> SingeltonList)

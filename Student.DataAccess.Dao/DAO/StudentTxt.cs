@@ -16,7 +16,7 @@ namespace Student.DataAccess.Dao.DAO
     public class StudentTxt<T> : IDao<T> where T : IVuelingObject
     {
         private  readonly string Path = UtilsFile.ExistsFile(UtilsConfiguration.GetFormatConfig());
-        private  readonly ILogger Log = UtilsConfiguration.InstanceLog(System.Reflection.MethodBase.GetCurrentMethod().GetType());
+        private  readonly ILogger Log = new AdapterLog4Net(System.Reflection.MethodBase.GetCurrentMethod().GetType());
         public T Add(T entity)
         {
             Log.Debug("");

@@ -10,7 +10,7 @@ namespace Student.Business.Logic
 {
     public static class Age
     {
-        public static readonly ILogger Log = UtilsConfiguration.InstanceLog(System.Reflection.MethodBase.GetCurrentMethod().GetType());
+        public static readonly ILogger Log = new AdapterLog4Net(System.Reflection.MethodBase.GetCurrentMethod().GetType());
         public static int AreAge(DateTime dateBorn, DateTime dateRegis)
         {
             try

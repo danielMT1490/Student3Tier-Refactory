@@ -93,6 +93,10 @@
       <Project>{7b595ccc-36e4-4904-bfc0-0b5dfb8fb37d}</Project>
       <Name>Student.Common.Logic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Student.DataAccess.Dao\Student.DataAccess.Dao.csproj">
+      <Project>{240C1CDC-1CBB-4CCF-AED6-7359FD76CC6F}</Project>
+      <Name>Student.DataAccess.Dao</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />

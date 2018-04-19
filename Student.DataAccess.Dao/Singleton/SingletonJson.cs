@@ -12,7 +12,7 @@ namespace Student.DataAccess.Dao.Singleton
 {
     public class SingletonJson<T> where T : IVuelingObject
     {
-        public static readonly ILogger Log = UtilsConfiguration.InstanceLog(System.Reflection.MethodBase.GetCurrentMethod().GetType());
+        public static readonly ILogger Log = new AdapterLog4Net(System.Reflection.MethodBase.GetCurrentMethod().GetType());
         private static SingletonJson<T> instance = null;
         private static readonly object padlock = new object();
         private List<T> students { get; set; }
