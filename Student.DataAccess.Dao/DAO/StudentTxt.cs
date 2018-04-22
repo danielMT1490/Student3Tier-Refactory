@@ -3,6 +3,7 @@ using Student.Common.Logic.Models;
 using Student.Common.Logic.UtilsConfig;
 using Student.DataAccess.Dao.Dao;
 using Student.DataAccess.Dao.DaoInterfaces;
+using Student.DataAccess.Dao.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,10 +14,10 @@ using System.Threading.Tasks;
 
 namespace Student.DataAccess.Dao.DAO
 {
-    public class StudentTxt<T> : IDao<T> where T : IVuelingObject
+    public class StudentTxt<T> : IRepository<T> where T : IVuelingObject
     {
         private  readonly string Path = UtilsFile.ExistsFile(UtilsConfiguration.GetFormatConfig());
-        private  readonly ILogger Log = new AdapterLog4Net(System.Reflection.MethodBase.GetCurrentMethod().GetType());
+        private  readonly ILogger Log = UtilsConfiguration.CerateInstanceLog(System.Reflection.MethodBase.GetCurrentMethod().GetType());
         public T Add(T entity)
         {
             Log.Debug("");
@@ -32,8 +33,13 @@ namespace Student.DataAccess.Dao.DAO
             catch (Exception ex)
             {
                 Log.Error(ex);
-                throw;
+                throw new ExceptionDao("Exc`pcion en la capa Dao",ex);
             };
+        }
+
+        public int Delete(Guid guid)
+        {
+            throw new NotImplementedException();
         }
 
         public List<T> ReadAll()
@@ -58,7 +64,7 @@ namespace Student.DataAccess.Dao.DAO
             catch (Exception ex )
             {
                 Log.Error(ex );
-                throw;
+                throw new ExceptionDao("Exc`pcion en la capa Dao",ex);
             }
         }
 
@@ -77,8 +83,13 @@ namespace Student.DataAccess.Dao.DAO
             catch (Exception ex)
             {
                 Log.Error(ex );
-                throw;
+               throw new ExceptionDao("Exc`pcion en la capa Dao",ex);
             }
+        }
+
+        public T Update(T entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

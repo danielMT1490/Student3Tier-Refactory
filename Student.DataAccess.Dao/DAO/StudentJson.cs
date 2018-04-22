@@ -11,12 +11,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
+using Student.DataAccess.Dao.Exceptions;
 
 namespace Student.DataAccess.Dao.DAO
 {
-    public class StudentJson<T> : IDao<T> where T : IVuelingObject
+    public class StudentJson<T> : IRepository<T> where T : IVuelingObject
     {
-        private  readonly ILogger Log = new AdapterLog4Net(System.Reflection.MethodBase.GetCurrentMethod().GetType());
+        private  readonly ILogger Log = UtilsConfiguration.CerateInstanceLog(System.Reflection.MethodBase.GetCurrentMethod().GetType());
         private  readonly string Path = UtilsFile.ExistsFile(UtilsConfiguration.GetFormatConfig());
         public T Add(T entity)
         {
@@ -36,8 +37,13 @@ namespace Student.DataAccess.Dao.DAO
             catch (Exception ex)
             {
                 Log.Error(ex);
-                throw;
+                throw new ExceptionDao("Exc`pcion en la capa Dao",ex);
             };
+        }
+
+        public int Delete(Guid guid)
+        {
+            throw new NotImplementedException();
         }
 
         public List<T> ReadAll()
@@ -62,7 +68,7 @@ namespace Student.DataAccess.Dao.DAO
             catch (Exception ex)
             {
                 Log.Error(ex);
-                throw;
+                throw new ExceptionDao("Exc`pcion en la capa Dao",ex);
             }
         }
 
@@ -81,10 +87,13 @@ namespace Student.DataAccess.Dao.DAO
             catch (Exception ex)
             {
                 Log.Error(ex);
-                throw;
+                throw new ExceptionDao("Exc`pcion en la capa Dao",ex);
             }
         }
 
-       
+        public T Update(T entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,6 +1,8 @@
-﻿using Student.Common.Logic.Log;
+﻿using Student.Business.Logic;
+using Student.Common.Logic.Log;
 using Student.Common.Logic.Models;
 using Student.Common.Logic.UtilsConfig;
+using Student.DataAccess.Dao;
 using Student.DataAccess.Dao.DAO;
 using System;
 using System.Collections.Generic;
@@ -21,8 +23,19 @@ namespace Student.Presentation.WinSite
         {
             try
             {
-              
-                StudentSql<Alumno> stu = new StudentSql<Alumno>();
+                Alumno al = new Alumno
+                {
+                    Dni="234234234",
+                    Nombre="Daniel",
+                    Apellidos="Madirfal",
+                    Edad=28,
+                    Guid= Guid.NewGuid(),
+                    Nacieminto= DateTime.Parse("14/11/1990"),
+                    Registro= DateTime.Now,
+                };
+                StudentJson<Alumno> stu = new StudentJson<Alumno>();
+                IStudentBL bl = new StudentBL(stu);
+                bl.Add(al);
             }
             catch (Exception ex )
             {

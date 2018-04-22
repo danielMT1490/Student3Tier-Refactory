@@ -14,7 +14,7 @@ namespace Student.Common.Logic.UtilsConfig
         public static readonly ILogger Log;
         static UtilsConfiguration()
         {
-           Log  = new AdapterLog4Net(System.Reflection.MethodBase.GetCurrentMethod().GetType());
+           Log  = UtilsConfiguration.CerateInstanceLog(System.Reflection.MethodBase.GetCurrentMethod().GetType());
         }
 
         public static void ChangeLogConfig(string classLog)
@@ -114,6 +114,26 @@ namespace Student.Common.Logic.UtilsConfig
             }
           
         }
+
+        public  static ILogger CerateInstanceLog(Type type)
+        {
+            var key = ConfigurationManager.AppSettings["Log"];
+            
+            Type t = Assembly.GetExecutingAssembly().GetType(key);
+
+            object[] mParam = new object[] { type };
+            return (ILogger)Activator.CreateInstance(t, mParam);
+        }
+
+        public static void ChangeLog(string log)
+        {
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.AppSettings.Settings["Log"].Value = log;
+            config.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection("Log");
+        }
+
+        
 
     }
 }

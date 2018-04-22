@@ -20,7 +20,7 @@ namespace Student.DataAccess.Dao.Factory
             typeFormat = type;
         }
 
-        public IDao<T> FactoryFormat()
+        public IRepository<T> FactoryFormat()
         {
             switch (typeFormat)
             {

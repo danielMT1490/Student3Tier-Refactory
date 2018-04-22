@@ -11,6 +11,6 @@ namespace Student.DataAccess.Dao.Factory
 {
     public interface IFactory<T> where T  :IVuelingObject 
     {
-        IDao<T> FactoryFormat();
+        IRepository<T> FactoryFormat();
     }
 }

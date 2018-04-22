@@ -1,5 +1,4 @@
-﻿using Student.Common.Logic.Models;
-using Student.DataAccess.Dao.Dao;
+﻿using Student.DataAccess.Dao.Dao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Student.DataAccess.Dao.DaoInterfaces
 {
-    public interface IDao<T> : ICreate<T> ,IRead<T> ,ISelect<T> where T : IVuelingObject
+    public interface IRepository<T> : IDelete<T>,ISelect<T>,IRead<T>,ICreate<T>,IUpdate<T> where T : Common.Logic.Models.IVuelingObject
     {
     }
 }

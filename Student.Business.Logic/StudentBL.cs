@@ -19,10 +19,11 @@ namespace Student.Business.Logic
     {
         public static readonly ILogger Log = new AdapterLog4Net(System.Reflection.MethodBase.GetCurrentMethod().GetType());
         private readonly FactoryDao<Alumno> FactoryDao;
+        private readonly IRepository<Alumno> _Repository;
 
-        public StudentBL()
+        public StudentBL(IRepository<Alumno> repository)
         {
-            FactoryDao = new FactoryDao<Alumno>((TypeFormat)Enum.Parse(typeof(TypeFormat), UtilsConfiguration.GetFormatConfig()));
+            _Repository = repository;
         }
 
         #region Crud
@@ -32,8 +33,7 @@ namespace Student.Business.Logic
             {
                 alumno.Edad = Age.AreAge(alumno.Nacieminto,alumno.Registro);
                 Log.Debug("");
-                var _ICreate = FactoryDao.FactoryFormat();
-                return _ICreate.Add(alumno);
+                return _Repository.Add(alumno);
             }
             catch (Exception ex)
             {
@@ -48,8 +48,7 @@ namespace Student.Business.Logic
             try
             {
                 Log.Debug("");
-                var _IDelete = (ICrud<Alumno>)FactoryDao.FactoryFormat();
-                return _IDelete.Delete(guid);
+                return _Repository.Delete(guid);
             }
             catch (Exception ex)
             {
@@ -63,8 +62,7 @@ namespace Student.Business.Logic
             try
             {
                 Log.Debug("");
-                var _IRead = FactoryDao.FactoryFormat();
-                return _IRead.ReadAll();
+                return _Repository.ReadAll();
             }
             catch (Exception ex)
             {
@@ -78,8 +76,7 @@ namespace Student.Business.Logic
             try
             {
                 Log.Debug("");
-                var _IUpdate = (ICrud<Alumno>)FactoryDao.FactoryFormat();
-                return _IUpdate.Update(alumno);
+                return _Repository.Update(alumno);
             }
             catch (Exception ex)
             {

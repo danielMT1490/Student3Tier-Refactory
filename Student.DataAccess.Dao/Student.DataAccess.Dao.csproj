@@ -44,21 +44,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DaoInterfaces\ICreate.cs" />
-    <Compile Include="DaoInterfaces\ICrud.cs" />
-    <Compile Include="DaoInterfaces\IDao.cs" />
     <Compile Include="DaoInterfaces\IDelete.cs" />
     <Compile Include="DaoInterfaces\IRead.cs" />
+    <Compile Include="DaoInterfaces\IRepository.cs" />
     <Compile Include="DaoInterfaces\ISelect.cs" />
     <Compile Include="DaoInterfaces\IUpdate.cs" />
     <Compile Include="DAO\StudentJson.cs" />
-    <Compile Include="DAO\StudentLinqSql.cs" />
-    <Compile Include="DAO\StudentSPSql.cs" />
     <Compile Include="DAO\StudentSql.cs" />
     <Compile Include="DAO\StudentTxt.cs" />
     <Compile Include="DAO\StudentXml.cs" />
+    <Compile Include="Exceptions\ExceptionDao.cs" />
     <Compile Include="Factory\FactoryDao.cs" />
     <Compile Include="Factory\IFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository.cs" />
     <Compile Include="Singleton\SingletonJson.cs" />
     <Compile Include="Singleton\SingletonXml.cs" />
   </ItemGroup>
