@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Student.Business.Facade.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
 
 namespace Student.Business.Facade
 {
@@ -13,13 +15,22 @@ namespace Student.Business.Facade
             // Configuración y servicios de API web
 
             // Rutas de API web
-            config.MapHttpAttributeRoutes();
 
+            // Rutas de API web
+            config.MapHttpAttributeRoutes();
+            //versionado de apis
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                name: "Version1Api",//Nombre de la version
+                routeTemplate: "api/v1/{controller}/{action}/{id}",//ruta
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Routes.MapHttpRoute(
+              name: "Version2Api",
+              routeTemplate: "api/v2/{controller}/{action}/{id}",
+              defaults: new { id = RouteParameter.Optional }
+          );
+            config.Services.Replace(typeof(IHttpControllerSelector), new CustomControllerSelector((config)));
         }
     }
 }

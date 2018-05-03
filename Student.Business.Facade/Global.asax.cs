@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Student.Business.Facade.Filters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,8 @@ namespace Student.Business.Facade
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+
+            GlobalConfiguration.Configuration.Filters.AddRange(FilterConfiguration.Filters());
         }
     }
 }

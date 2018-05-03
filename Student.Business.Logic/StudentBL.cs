@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Student.Business.Logic.Exceptions;
 using Student.Common.Logic.Enums;
 using Student.Common.Logic.Log;
 using Student.Common.Logic.Models;
@@ -38,7 +39,7 @@ namespace Student.Business.Logic
             catch (Exception ex)
             {
                 Log.Error(ex);
-                throw;
+                throw new BusinessException(ex.Message,ex.InnerException);
             }
 
         }
@@ -53,7 +54,7 @@ namespace Student.Business.Logic
             catch (Exception ex)
             {
                 Log.Error(ex);
-                throw;
+                throw new BusinessException(ex.Message, ex.InnerException);
             }
         }
 
@@ -67,7 +68,7 @@ namespace Student.Business.Logic
             catch (Exception ex)
             {
                 Log.Error(ex);
-                throw;
+                throw new BusinessException(ex.Message, ex.InnerException);
             }
         }
 
@@ -81,7 +82,7 @@ namespace Student.Business.Logic
             catch (Exception ex)
             {
                 Log.Error(ex);
-                throw;
+                throw new BusinessException(ex.Message, ex.InnerException);
             }
         }
         #endregion

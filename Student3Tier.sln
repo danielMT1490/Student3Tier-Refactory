@@ -25,6 +25,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Student.Business.Facade.Log
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Student.Business.Facade", "Student.Business.Facade\Student.Business.Facade.csproj", "{6E02DF2F-46BC-4EA7-B961-D79DD6B479E8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutofacConfiguration", "AutofacConfiguration", "{0262EE75-9EAC-4766-84FF-011292A2CA4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutofacConfiguration", "AutofacConfiguration\AutofacConfiguration.csproj", "{641FA2DD-4DB7-4357-981F-7BB360A3D934}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +65,10 @@ Global
 		{6E02DF2F-46BC-4EA7-B961-D79DD6B479E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E02DF2F-46BC-4EA7-B961-D79DD6B479E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E02DF2F-46BC-4EA7-B961-D79DD6B479E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{641FA2DD-4DB7-4357-981F-7BB360A3D934}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{641FA2DD-4DB7-4357-981F-7BB360A3D934}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{641FA2DD-4DB7-4357-981F-7BB360A3D934}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{641FA2DD-4DB7-4357-981F-7BB360A3D934}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +81,7 @@ Global
 		{C41AA919-B2BB-4DC3-8F40-DC6FF1713AD3} = {20663695-033F-4882-90CC-166CFF993F63}
 		{DE9D8CDB-1441-40C2-8032-7F9D8691421A} = {31948485-E812-42E8-A1FD-9A32633D848A}
 		{6E02DF2F-46BC-4EA7-B961-D79DD6B479E8} = {28D03D1C-73F8-4A20-BB21-7566570F23EC}
+		{641FA2DD-4DB7-4357-981F-7BB360A3D934} = {0262EE75-9EAC-4766-84FF-011292A2CA4A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E7CE9762-E2DC-4C12-BFDC-9B2246930E4D}
